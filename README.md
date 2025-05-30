@@ -1,6 +1,7 @@
 # DIPA_Project
 
 ## Project directory structure:
+<pre>
 dataset/
 ── train/
    ── images/
@@ -23,14 +24,18 @@ project_yolo_v8.ipynb
 pothole_data.yaml
 README.md
 requirements.txt
+...
+</pre>
+
 
 ## Project description
 
 The project is an analysis of 3 seperate models for image recognition. The 3 models used are YOLOv8, FasterRCNN and a custom CNN model.
 Each of the 3 models and their training are separted into 3 distinct jupyter notebook files.
-Each file is organized in 3 sections: 
-1.  Model Initialization
-  - lmodel data class, value conversion
+Each file is organized in 3 sections:
+
+1. Model Initialization
+    - model data class, value conversion
 2. Model Training
     - yolo using internal implementation
     - fasterrcnn and custom cnn
