@@ -45,5 +45,6 @@ Each file is organized in 3 sections:
     - metrics like accuracy, recall, f1, precision
 
 The output of each jupyter notebook is a .pdf file with side by side examples of ground truth and predicted boundingboxes and metrics for each model (accuracy, recall, f1, precision).
+</br>
 The dataset used was: [https://universe.roboflow.com/hackthethong/pothole-detection-gmnid/], YOLOv8 OBB format and [] for the _annotations.csv file
 
