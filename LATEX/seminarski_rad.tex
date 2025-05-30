@@ -1,0 +1,152 @@
+\documentclass[seminarskirad]{fer}
+%\usepackage[croatian]{babel}
+\usepackage{blindtext}
+\usepackage{bookmark}
+\usepackage{float}
+
+
+%--- PODACI O RADU / THESIS INFORMATION ----------------------------------------
+
+% Naslov na engleskom jeziku / Title in English
+\title{Detecting potholes}
+
+% Naslov na hrvatskom jeziku / Title in Croatian
+\naslov{Detekcija oštećenja kolnika}
+
+% Autor / Author
+\author{Josipa Sever\\ Josip Despot\\ Nikola Marić\\ Franjo Vuković\\ Josipa Udovičić}
+
+% Mentor 
+
+% Datum rada na engleskom jeziku / Date in English
+\date{May, 2025}
+
+% Datum rada na hrvatskom jeziku / Date in Croatian
+\datum{Svibanj, 2025.}
+
+%-------------------------------------------------------------------------------
+
+
+\begin{document}
+
+
+% Naslovnica se automatski generira / Titlepage is automatically generated
+\maketitle
+
+
+% Odovud započinje numeriranje stranica / Page numbering starts from here
+\mainmatter
+
+
+%--- SAŽETAK / ABSTRACT --------------------------------------------------------
+
+% Sažetak na hrvatskom
+
+
+% Sadržaj se automatski generira / Table of contents is automatically generated
+\tableofcontents
+
+
+%--- UVOD / INTRODUCTION -------------------------------------------------------
+\chapter{Uvod}
+\label{pog:uvod}
+
+Održavanje cestovne infrastrukture jedan je od ključnih čimbenika za sigurnost i učinkovitost cestovnog prometa. Kvaliteta kolnika izravno utječe na sigurnost sudionika u prometu, dugovječnost vozila te ukupne troškove održavanja prometnica. Tradicionalne metode inspekcije kolnika često su vremenski zahtjevne, skupe i podložne subjektivnim procjenama. S obzirom na sve veću dostupnost digitalnih tehnologija i porast količine vizualnih podataka, automatizacija procesa detekcije oštećenja na kolnicima nameće se kao logičan i nužan korak prema modernizaciji cestovnog nadzora.
+
+Tema ovog projekta usmjerena je na razvoj sustava za automatsku detekciju oštećenih dijelova kolnika na temelju analiza digitalnih slika. Detekcija će se ostvariti primjenom metoda digitalne obrade slike u kombinaciji sa strojnim učenjem, pri čemu je naglasak na treniranju modela sposobnog za prepoznavanje oštećenja poput pukotina, rupa i neravnina. Proces uključuje izradu i obradu skupa podataka koji sadrži slike kolnika u različitim stanjima, a za treniranje modela koristit će se konvolucijske neuronske mreže (CNN), koje su se pokazale iznimno učinkovitima u zadacima računalnog vida.
+
+Evaluacija razvijenog modela provodit će se pomoću standardnih metrika kao što su točnost, preciznost i F1-mjera, s ciljem postizanja visoke razine pouzdanosti u stvarnim uvjetima primjene. Na taj način, projekt ne samo da doprinosi razvoju suvremenih tehnoloških rješenja u prometnoj infrastrukturi, već i otvara mogućnosti za njihovu širu implementaciju u sustavima pametnih gradova i automatiziranog upravljanja prometnicama.
+
+%-------------------------------------------------------------------------------
+\chapter{Pregled postojećih pristupa detekciji oštećenja kolnika}
+\label{pog:pregled}
+
+Automatska detekcija oštećenja na kolnicima posljednjih je godina postala važno područje istraživanja, potaknuto potrebom za bržim, preciznijim i ekonomičnijim metodama održavanja cestovne infrastrukture. Tradicionalne metode oslanjaju se na vizualne inspekcije koje su često subjektivne, skupe i vremenski zahtjevne, zbog čega se razvijaju računalni sustavi temeljenim na obradi slike i strojnome učenju.
+
+Prvi pristupi ovom problemu koristili su klasične tehnike digitalne obrade slike, uključujući metode binarizacije, morfoloških operacija i detekcije rubova. Iako jednostavne za implementaciju, te metode često podliježu pogreškama u uvjetima lošeg osvjetljenja i šuma u pozadini slike (npr. zbog sjena, ulja ili prljavštine), što ograničava njihovu upotrebljivost u stvarnim uvjetima \cite{lau2020}.
+
+S napretkom dubokog učenja i računalnog vida, značajna pažnja posvećena je primjeni konvolucijskih neuronskih mreža (CNN), koje su se pokazale iznimno učinkovitima u zadacima detekcije i segmentacije oštećenja. Primjerice, U-Net arhitektura korištena je za segmentaciju pukotina na slikama kolnika, pri čemu je postignuta visoka točnost segmentacije i otpornost na šumove \cite{lau2020}.
+
+U daljnjim istraživanjima, autori su primijenili različite CNN arhitekture poput VGG16, ResNet-50 i MobileNet kako bi se usporedila njihova učinkovitost u klasifikaciji oštećenja. Rezultati su pokazali da duboki modeli poput ResNet-a postižu veću preciznost i stabilnost u klasifikaciji pukotina, čak i na različitim skupovima podataka \cite{tapamo2023}.
+
+Za zadatke detekcije u stvarnom vremenu posebno su se pokazali korisnima modeli iz YOLO (You Only Look Once) obitelji, poput YOLOv5 i YOLOv8. Ovi modeli omogućuju brzo i precizno prepoznavanje različitih vrsta oštećenja (npr. pukotine, rupe) uz visoku razinu robusnosti na različitim vrstama podloge i u uvjetima promjenjivog osvjetljenja \cite{nafaa2024}.
+
+Uz obradu RGB slika, sve više istraživanja koristi fuziju podataka iz različitih izvora za poboljšanje detekcije. Primjerice, kombinacijom RGB i termalnih (infracrvenih) slika moguće je bolje razlikovati oštećenja od sjena ili mrlja, čime se smanjuje broj lažno pozitivnih detekcija. U jednom radu postignuta je točnost od 98,34 \% korištenjem EfficientNetB4 modela za analizu kombiniranih slika \cite{mdpi2022}.
+
+Još napredniji sustavi koriste dodatne senzore, poput inercijskih mjernih jedinica (IMU), za prikupljanje podataka o vibracijama vozila. Spajanjem vizualnih podataka s podacima o vibracijama pomoću dubokih modela poput YOLOv7 i Bi-LSTM mreža, moguće je detektirati i dublje oštećenje kolnika koje nije nužno vidljivo na slici \cite{hsieh2024}.
+
+Konačno, pregled literature koji su proveli Guan i suradnici nudi sveobuhvatan prikaz trenutačnih istraživanja na području automatske detekcije cestovnih oštećenja. U radu se detaljno analiziraju pristupi koji koriste podatke iz bespilotnih letjelica, 3D rekonstrukcija terena te izazovi skalabilnosti i generalizacije modela u stvarnim prometnim uvjetima \cite{guan2023}.
+
+% -------------------------------------------------------------------------------
+
+\chapter{Razvoj i implementacija sustava za detekciju oštećenja na kolnicima}
+\label{pog:razvoj}
+
+U nastavku se detaljno opisuje pristup razvijen od strane projektnog tima, uključujući strukturu skupa podataka, arhitekture modela, načine obrade podataka i evaluaciju performansi.
+
+\section{Priprema i struktura podataka}
+\label{sec:priprema_podataka}
+
+Za potrebe treniranja i evaluacije modela projektni tim koristio je skup podataka \textit{Pothole Detection} dostupan na Roboflow platformi \cite{roboflow_pothole}. Skup se sastoji od kvalitetno anotiranih slika kolnika koje prikazuju različite vrste oštećenja, s jasno označenim bounding boxovima. Ove oznake omogućuju modelima detekcije učenje specifičnih vizualnih karakteristika oštećenja poput pukotina, udubljenja i rupa.
+
+Skup podataka preuzet je i prilagođen za uporabu u YOLO formatu, što podrazumijeva odvojene \texttt{.txt} datoteke za svaku sliku s koordinatama oznaka. Podaci su organizirani u tri glavne skupine:
+
+\begin{itemize}
+    \item \textbf{Trening skup (train/)} – služi za učenje modela.
+    \item \textbf{Validacijski skup (valid/)} – koristi se za nadzor nad generalizacijskom sposobnošću tijekom treniranja.
+    \item \textbf{Testni skup (test/)} – neovisno se koristi za konačnu provjeru učinkovitosti modela.
+\end{itemize}
+
+Kako bi se povećala raznolikost i robusnost modela, provedena je i \textbf{augmentacija slika} (rotacija, zrcaljenje, skaliranje, promjene kontrasta i svjetline) uz pomoć Roboflowovih ugrađenih alata. Time se osigurava otpornost modela na promjene u osvjetljenju, perspektivi i teksturi kolnika.
+
+\section{Odabrani modeli i pristupi}
+\label{sec:odabrani_modeli}
+
+Kako bi se osigurala što viša preciznost u detekciji oštećenja, projektni tim implementirao je više različitih modela, uključujući:
+
+\begin{itemize}
+    \item \textbf{Vlastita CNN arhitektura} \\
+    Razvijena je prilagođena konvolucijska neuronska mreža (Custom CNN) sa slojevima za ekstrakciju značajki i klasifikaciju, prikladna za rad s manjim skupovima podataka i jednostavnijom strukturom.
+    
+    \item \textbf{Faster R-CNN} \\
+    Primijenjen je napredni model za detekciju objekata koji koristi regijske prijedloge (Region Proposal Network) za identifikaciju potencijalnih područja oštećenja. Ovaj model omogućuje visoku točnost detekcije, ali je računalno zahtjevniji.
+    
+    \item \textbf{YOLOv8} \\
+    Model YOLOv8 implementiran je kao najučinkovitije rješenje za detekciju u stvarnom vremenu. Njegova brzina izvođenja i visoka preciznost čine ga izuzetno pogodnim za primjene u stvarnom okruženju, kao što su mobilne aplikacije za pregled cesta.
+\end{itemize}
+
+\section{Treniranje i evaluacija modela}
+\label{sec:treniranje_evaluacija}
+
+Svi modeli trenirani su koristeći unaprijed pripremljeni skup podataka, pri čemu su korištene različite strategije augmentacije slika (npr. rotacija, zrcaljenje, promjene kontrasta) radi povećanja raznolikosti ulaznih podataka. Parametri treniranja (broj epoha, veličina batcha, stopa učenja) prilagođeni su svakom modelu kako bi se postigli optimalni rezultati.
+
+Evaluacija performansi provedena je korištenjem standardnih metrika:
+
+\begin{itemize}
+    \item \textbf{Preciznost (precision)} – omjer ispravno detektiranih oštećenja i svih detekcija.
+    \item \textbf{Odziv (recall)} – omjer ispravno detektiranih oštećenja i ukupnog broja stvarnih oštećenja.
+    \item \textbf{F1-mjera} – harmonijska sredina preciznosti i odziva.
+    \item \textbf{mAP (mean Average Precision)} – mjerilo koje kombinira preciznost i lokalizaciju objekata kroz različite pragove.
+\end{itemize}
+
+Rezultati evaluacije prikazani su grafički i tablično te su korišteni za usporedbu performansi između modela.
+
+%--- ZAKLJUČAK / CONCLUSION ----------------------------------------------------
+\chapter{Zaključak}
+\label{pog:zakljucak}
+
+bok \cite{lau2020} \cite{tapamo2023} \cite{nafaa2024} \cite{mdpi2022} \cite{hsieh2024} \cite{guan2023}
+
+%--- LITERATURA / REFERENCES ---------------------------------------------------
+
+% Literatura se automatski generira / References are automatically generated
+% Upiši ime BibTeX datoteke bez .bib nastavka / Enter the name of the BibTeX file without .bib extension
+
+\bibliography{literatura}
+
+%--- PRIVITCI / APPENDIX -------------------------------------------------------
+
+\backmatter
+
+
+\end{document}
