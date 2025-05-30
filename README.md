@@ -18,12 +18,12 @@ dataset/
       ── G1...jpg
       ── G2...jpg
    ── annotations.csv
-project_custom_cnn.ipynb
-project_faster_rcnn.ipynb
-project_yolo_v8.ipynb
-pothole_data.yaml
-README.md
-requirements.txt
+── project_custom_cnn.ipynb
+── project_faster_rcnn.ipynb
+── project_yolo_v8.ipynb
+── pothole_data.yaml
+── README.md
+── requirements.txt
 ...
 </pre>
 
