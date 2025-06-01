@@ -260,7 +260,13 @@ Rad Bui et al. (2022) \cite{mdpi2022} koristi fuziju RGB i termalnih slika za po
 \section{Zaključak}
 \label{pog:zakljucak}
 
-bok \cite{lau2020} \cite{tapamo2023} \cite{nafaa2024} \cite{mdpi2022} \cite{hsieh2024} \cite{guan2023}
+U ovom radu predstavljen je razvoj i evaluacija sustava za automatsku detekciju oštećenja na kolnicima korištenjem dubokih konvolucijskih neuronskih mreža. Korišten je kvalitetno anotirani skup podataka, a razvijeni modeli uspoređeni su s obzirom na točnost, preciznost, odziv i F1-mjeru.
+
+Odabrana su tri različita pristupa: vlastita CNN arhitektura, Faster R-CNN te YOLOv8. Analiza je pokazala da, iako vlastiti model može pružiti osnovne rezultate u ograničenim uvjetima, pokazuje značajna ograničenja u pogledu generalizacije i osjetljiv je na varijacije u ulaznim podacima. YOLOv8 model pokazao je bolju preciznost, ali i ograničen odziv, što znači da često propušta detektirati neka stvarna oštećenja. S druge strane, Faster R-CNN model postigao je najstabilnije i najuravnoteženije rezultate među testiranim arhitekturama, s visokim odzivom i preciznom lokalizacijom oštećenja.
+
+Vizualna analiza dodatno je potvrdila kvantitativne rezultate te ukazala na prednosti i slabosti svakog pristupa u stvarnim uvjetima. Faster R-CNN se pokazao najpouzdanijim za dublju analizu, dok YOLO ostaje vrlo koristan u aplikacijama gdje je vrijeme izvođenja ključno.
+
+Zaključno, rad potvrđuje učinkovitost primjene metoda dubokog učenja u području detekcije cestovnih oštećenja te postavlja temelje za buduće proširenje sustava korištenjem dodatnih izvora podataka (npr. termalne slike, IMU senzori) i optimizaciju modela za rad u stvarnom vremenu. Predložena rješenja mogu imati značajan doprinos u kontekstu pametnih gradova, digitalnog održavanja infrastrukture i poboljšanja prometne sigurnosti.
 
 %--- LITERATURA / REFERENCES ---------------------------------------------------
 
