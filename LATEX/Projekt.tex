@@ -15,34 +15,34 @@
 
 \begin{document}
 
-\title{Detekcija oštećenja kolnika
-}
+\title{Detekcija oštećenja kolnika}
 
 \author{
-\IEEEauthorblockN{1\textsuperscript{st} Josipa Sever}
-\IEEEauthorblockA{\textit{Faculty of Electrical Engineering and Computing (FER)} \\
-University of Zagreb, Croatia \\
+\IEEEauthorblockN{1. Josipa Sever}
+\IEEEauthorblockA{\textit{Fakultet elektrotehnike i računarstva (FER)} \\
+Sveučilište u Zagrebu, Hrvatska \\
 josipa.sever@fer.hr}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Josip Despot}
-\IEEEauthorblockA{\textit{Faculty of Electrical Engineering and Computing (FER)} \\
-University of Zagreb, Croatia \\
+\IEEEauthorblockN{2. Josip Despot}
+\IEEEauthorblockA{\textit{Fakultet elektrotehnike i računarstva (FER)} \\
+Sveučilište u Zagrebu, Hrvatska \\
 josip.despot@fer.hr}
 \and
-\IEEEauthorblockN{3\textsuperscript{rd} Nikola Marić}
-\IEEEauthorblockA{\textit{Faculty of Electrical Engineering and Computing (FER)} \\
-University of Zagreb, Croatia \\
+\IEEEauthorblockN{3. Nikola Marić}
+\IEEEauthorblockA{\textit{Fakultet elektrotehnike i računarstva (FER)} \\
+Sveučilište u Zagrebu, Hrvatska \\
 nikola.maric@fer.hr}
 \and
-\IEEEauthorblockN{4\textsuperscript{th} Franjo Vuković}
-\IEEEauthorblockA{\textit{Faculty of Electrical Engineering and Computing (FER)} \\
-University of Zagreb, Croatia \\
+\IEEEauthorblockN{4. Franjo Vuković}
+\IEEEauthorblockA{\textit{Fakultet elektrotehnike i računarstva (FER)} \\
+Sveučilište u Zagrebu, Hrvatska \\
 franjo.vukovic2@fer.hr}
 \and
-\IEEEauthorblockN{5\textsuperscript{th} Josipa Udovičić}
-\IEEEauthorblockA{\textit{Faculty of Electrical Engineering and Computing (FER)} \\
-University of Zagreb, Croatia \\
+\IEEEauthorblockN{5. Josipa Udovičić}
+\IEEEauthorblockA{\textit{Fakultet elektrotehnike i računarstva (FER)} \\
+Sveučilište u Zagrebu, Hrvatska \\
 josipa.udovicic@fer.hr}
+
 }
 
 
@@ -125,11 +125,11 @@ Kako bi se osigurala što viša preciznost u detekciji oštećenja, projektni ti
 
     \item \textbf{Faster R-CNN} \\
     Primijenjen je napredni model za detekciju objekata koji koristi regijske prijedloge (Region Proposal Network) za identifikaciju potencijalnih područja oštećenja. Ovaj model omogućuje visoku točnost detekcije, ali je računalno zahtjevniji.
-    %\begin{figure}[htbp]
-    %\centerline{\includegraphics[width=0.45\textwidth]{Images/FasterCNN.jpg}}
-    %\caption{Vizualni prikaz Faster R-CNN modela, koji koristi regijske prijedloge za identifikaciju potencijalnih područja oštećenja.}
-    %\label{fig:fasterrcnn}
-    %\end{figure}
+    \begin{figure}[htbp]
+    \centerline{\includegraphics[width=0.45\textwidth]{Images/FasterCNN.png}}
+    \caption{Vizualni prikaz Faster R-CNN modela, koji koristi regijske prijedloge za identifikaciju potencijalnih područja oštećenja.}
+    \label{fig:fasterrcnn}
+    \end{figure}
 
     \item \textbf{YOLOv8} \\
     Model YOLOv8 implementiran je kao najučinkovitije rješenje za detekciju u stvarnom vremenu. Njegova brzina izvođenja i visoka preciznost čine ga izuzetno pogodnim za primjene u stvarnom okruženju, kao što su mobilne aplikacije za pregled cesta.
@@ -262,7 +262,7 @@ Rad Bui et al. (2022) \cite{mdpi2022} koristi fuziju RGB i termalnih slika za po
 
 U ovom radu predstavljen je razvoj i evaluacija sustava za automatsku detekciju oštećenja na kolnicima korištenjem dubokih konvolucijskih neuronskih mreža. Korišten je kvalitetno anotirani skup podataka, a razvijeni modeli uspoređeni su s obzirom na točnost, preciznost, odziv i F1-mjeru.
 
-Odabrana su tri različita pristupa: vlastita CNN arhitektura, Faster R-CNN te YOLOv8. Analiza je pokazala da, iako vlastiti model može pružiti osnovne rezultate u ograničenim uvjetima, pokazuje značajna ograničenja u pogledu generalizacije i osjetljiv je na varijacije u ulaznim podacima. YOLOv8 model pokazao je bolju preciznost, ali i ograničen odziv, što znači da često propušta detektirati neka stvarna oštećenja. S druge strane, Faster R-CNN model postigao je najstabilnije i najuravnoteženije rezultate među testiranim arhitekturama, s visokim odzivom i preciznom lokalizacijom oštećenja.
+Odabrana su tri različita pristupa: vlastita CNN arhitektura, Faster R-CNN te YOLOv8. Analiza je pokazala da, iako vlastiti model može pružiti osnovne rezultate u ograničenim uvjetima, pokazuje značajna ograničenja u pogledu generalizacije i osjetljiv je na varijacije u ulaznim podacima. YOLOv8 model pokazao je bolju preciznost, ali i ograničen odziv, što znači da ne rijetko propušta detektirati neka stvarna oštećenja. S druge strane, Faster R-CNN model postigao je najstabilnije i najuravnoteženije rezultate među testiranim arhitekturama, s visokim odzivom i preciznom lokalizacijom oštećenja.
 
 Vizualna analiza dodatno je potvrdila kvantitativne rezultate te ukazala na prednosti i slabosti svakog pristupa u stvarnim uvjetima. Faster R-CNN se pokazao najpouzdanijim za dublju analizu, dok YOLO ostaje vrlo koristan u aplikacijama gdje je vrijeme izvođenja ključno.
 
